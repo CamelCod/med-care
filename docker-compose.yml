@@ -3,9 +3,11 @@ services:
   backend:
     build: .
     ports:
-      - "5000:5000"
+      - "5000:3000"
     environment:
       - DATABASE_URL=postgres://user:password@db:5432/mydb
+      - NODE_ENV=production
+      - PORT=3000
   frontend:
     build: ./frontend
     ports:
