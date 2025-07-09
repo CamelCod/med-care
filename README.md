@@ -1,164 +1,146 @@
-# 
+# Med-Care Application
 
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## License
-
-5. Submit a pull request
-6. Add tests
-7. Make your changes
-8. Create a feature branch
-9. Fork the repository
-
-## Contributing
-
-See deployment guides in the `/docs` directory.
-
-### AWS ECS / Kubernetes
-
-```md
-heroku container:release web
-heroku container:push web
-heroku stack:set container
-heroku create med-care-app
-```bash
-
-
-## Deployment
-
-- Docker security best practices
-- Environment variable protection
-- Input validation and sanitization
-- CORS protection
-- Helmet.js for security headers
-
-## Security
-
-- `npm run docker:compose` - Start with Docker Compose
-- `npm run docker:run` - Run Docker container
-- `npm run docker:build` - Build Docker image
-- `npm test` - Run tests
-- `npm run dev` - Start development server with nodemon
-- `npm start` - Start production server
-
-
-```
-
-└── README.md           # This file
-├── .dockerignore       # Docker ignore rules
-├── .gitignore          # Git ignore rules
-├── docker-compose.yml   # Multi-service configuration
-├── Dockerfile           # Docker image configuration
-├── package.json          # Node.js dependencies
-├── server.js             # Main application entry point
-├── .github/workflows/     # GitHub Actions workflows
-med-care/
-
-```md
-
-
-## Development
-
-- `DOCKER_PASSWORD`: Your Docker Hub access token
-- `DOCKER_USERNAME`: Your Docker Hub username
-Add these secrets to your GitHub repository:
-
-
-- Runs tests and security checks
-- Pushes to Docker Hub registry
-- Builds the Docker image on push to main
-The GitHub Actions workflow automatically:
-
-## CI/CD Pipeline
-
-- **db**: PostgreSQL database (port 5432)
-- **frontend**: Web application (port 80)
-- **backend**: Node.js API server (port 5000)
-
-## Docker Services
-
-```
-
-DATABASE_URL=postgres://user:password@localhost:5432/medcare
-PORT=3000
-NODE_ENV=development
-
-```env
-
-Create a `.env` file in the root directory:
-
-## Environment Variables
-
-- `GET /api` - API status and features
-- `GET /health` - Health check endpoint
-- `GET /` - Welcome message and API info
-
-## API Endpoints
-
-```
-
-npm start
-
-# Start production server
-
-npm run dev
-
-# Start development server
-
-npm install
-
-# Install dependencies
-
-```bash
-
-
-```
-
-docker run -p 3000:3000 med-care
-
-# Run the container
-
-docker build -t med-care .
-
-# Build the image
-
-```bash
-
-
-```
-
-docker-compose up -d
-
-# Start in detached mode
-
-docker-compose up
-
-# Start all services
-
-cd med-care
-git clone <your-repo-url>
-
-# Clone the repository
-
-```bash
-
-
-## Quick Start
-
-- Git
-- Node.js 18+ (for local development)
-- Docker and Docker Compose
-
-## Prerequisites
-
-- 🔒 Security best practices implemented
-- 📊 Health monitoring endpoints
-- 🚀 CI/CD pipeline with GitHub Actions
-- 🐳 Fully containerized with Docker
-- 🏥 Medical care management system
+A containerized medical care application built with Node.js and Docker.
 
 ## Features
 
-A containerized medical care application built with Node.js and Docker.
- Med-Care Application
+- 🏥 Medical care management system
+- 🐳 Fully containerized with Docker
+- 🚀 CI/CD pipeline with GitHub Actions
+- 📊 Health monitoring endpoints
+- 🔒 Security best practices implemented
+
+## Prerequisites
+
+- Docker and Docker Compose
+- Node.js 18+ (for local development)
+- Git
+
+## Quick Start
+
+```bash
+# Clone the repository
+git clone <your-repo-url>
+cd med-care
+
+# Start all services
+docker-compose up
+
+# Start in detached mode
+docker-compose up -d
 ```
+
+### Local Development
+
+```bash
+# Build the image
+docker build -t med-care .
+
+# Run the container
+docker run -p 3000:3000 med-care
+```
+
+### Node.js Development
+
+```bash
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Start production server
+npm start
+```
+
+## API Endpoints
+
+- `GET /` - Welcome message and API info
+- `GET /health` - Health check endpoint
+- `GET /api` - API status and features
+
+## Environment Variables
+
+Create a `.env` file in the root directory:
+
+```env
+NODE_ENV=development
+PORT=3000
+DATABASE_URL=postgres://user:password@localhost:5432/medcare
+```
+
+## Docker Services
+
+- **backend**: Node.js API server (port 3000)
+- **db**: PostgreSQL database (port 5432)
+
+## CI/CD Pipeline
+
+The GitHub Actions workflow automatically:
+- Builds the Docker image on push to main
+- Pushes to Docker Hub registry
+- Runs tests and security checks
+
+Add these secrets to your GitHub repository:
+- `DOCKER_USERNAME`: Your Docker Hub username
+- `DOCKER_PASSWORD`: Your Docker Hub access token
+
+## Development
+
+Available npm scripts:
+- `npm start` - Start production server
+- `npm run dev` - Start development server with nodemon
+- `npm test` - Run tests
+- `npm run docker:build` - Build Docker image
+- `npm run docker:run` - Run Docker container
+- `npm run docker:compose` - Start with Docker Compose
+
+## Project Structure
+
+```
+med-care/
+├── .github/workflows/     # GitHub Actions workflows
+├── public/               # Static frontend files
+├── server.js             # Main application entry point
+├── package.json          # Node.js dependencies
+├── Dockerfile           # Docker image configuration
+├── docker-compose.yml   # Multi-service configuration
+├── .gitignore          # Git ignore rules
+├── .dockerignore       # Docker ignore rules
+└── README.md           # This file
+```
+
+## Security
+
+- Helmet.js for security headers
+- CORS protection
+- Input validation and sanitization
+- Environment variable protection
+- Docker security best practices
+
+## Deployment
+
+### Heroku
+
+```bash
+heroku create med-care-app
+heroku stack:set container
+heroku container:push web
+heroku container:release web
+```
+
+### AWS ECS / Kubernetes
+
+See deployment guides in the `/docs` directory.
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Add tests
+5. Submit a pull request
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
